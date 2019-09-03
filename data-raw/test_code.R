@@ -29,7 +29,28 @@ immobility(distdf, X=1, N=3) # 3 seconds at less than 1 unit traveled
 immobility(distdf, X=2, N=1.5) # 1.5 seconds at less than 2 unit traveled
 
 
-##############3
+
+
+
+##############
+
+#note get_coords_habit also works with cup data
+# can use as a quick way to calculate distances/immobility
+
+cdata <- get_coords_habit(cup) #gets rescaled raw data and box coordinates
+cdata$xy #rescaled data
+cdata$box #box coordinates
+
+distcalc(cdata$xy) #gets distance calculated
+distplot(distcalc(cdata$xy)) #distance plot
+quickplot(cdata$xy)
+
+#get immobility
+distdf <- distcalc(cdata$xy)
+immobility(distdf)
+
+
+##############
 
 
 eg <- get_coords(cup)
