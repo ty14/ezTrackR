@@ -4,6 +4,7 @@
 #' secs number of seconds to get data for from beginning
 #' fr  frame rate of camera
 #' burnin - number of frames to ignore
+#' @export
 
 get_data <- function(df, secs=300, fr=30, burnin = 0){
 
@@ -11,7 +12,7 @@ get_data <- function(df, secs=300, fr=30, burnin = 0){
 
   nframes <- (secs * fr) + burnin
 
-  dx <- df %>% select(File, Frame, X, Y, ROI, Other, ROI_coordinates)
+  dx <- df %>% select(File, Frame, X, Y, ROI, ROI_coordinates)
   dx$Frame <- as.numeric(dx$Frame)
   dx.5 <- dx %>% filter (Frame <= nframes)
 
@@ -23,10 +24,9 @@ get_data <- function(df, secs=300, fr=30, burnin = 0){
     filter( !is.na( X_prev ) ) %>%  #filter out rows without previous x value
     mutate( distance = sqrt( abs (X - X_prev )^2 + abs( Y - Y_prev )^2 )) %>% #calculate the distance
     mutate( total_distance = sum( distance )) %>% #summarise to get the total distance
-    mutate(time_sec= distance/fr)
     select(Frame,X,Y,distance,total_distance, X_prev)
 
-  dist.5 <- dx.5 %>% full_join(dist) %>% select(Frame,X,Y,distance,total_distance,time_sec)
+  dist.5 <- dx.5 %>% full_join(dist) %>% select(Frame,X,Y,distance,total_distance)
 
   dist.5 <- dist.5[(1+burnin):(nrow(dist.5)+burnin),]
 

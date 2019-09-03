@@ -1,6 +1,7 @@
 #' df  raw dataset
 #' ROIX = distance in X of ROI
 #' ROIY = distance in Y of ROI
+#' @export
 
 get_coords <- function(df, ROIX = 200, ROIY = 100){
 
@@ -21,30 +22,27 @@ get_coords <- function(df, ROIX = 200, ROIY = 100){
     select(box,cup) ### remember the first 4 columns are x coordinates and last 4 are y coordinates
 
   # pulls out x/y min and max for cup range
-  cup.mean <- dx.flip %>%
-    select(cup) %>%
-    mutate(x.mean = mean(dx.flip[c(1:4),2])) %>%
-    mutate(y.mean = mean(dx.flip [c(5:8),2]))%>%
-    mutate(x_max = x.mean + ROIX) %>%
-    mutate(x_min = x.mean -ROIX) %>%
-    mutate(y_max = y.mean + ROIY) %>%
-    mutate(y_min = y.mean - ROIY) %>%
-    select(-cup,-x.mean,-y.mean)
 
-  cup.range <- (cup.mean[1,])
+  cup.mean.x <- mean(dx.flip[c(1:4),2])
+  cup.mean.y <- mean(dx.flip [c(5:8),2])
+
+  cup.range <- data.frame(
+    x_max = cup.mean.x + ROIX,
+    x_min = cup.mean.x - ROIX,
+    y_max = cup.mean.y + ROIY,
+    y_min = cup.mean.y - ROIY
+  )
+
 
   # pulls out x/y min and max for box range
-  box.mean <- dx.flip %>%
-    select(box) %>%
-    mutate(left = mean(dx.flip[c(1:2),1])) %>%
-    mutate(top = mean(dx.flip[c(5,8),1])) %>%
-    mutate(right = mean(dx.flip[c(3:4),1])) %>%
-    mutate(bottom = mean(dx.flip[c(6:7),1])) %>%
-    select(left,top,right,bottom)
+  box.range <- data.frame(
+left = mean(dx.flip[c(1,4),1]),
+top = mean(dx.flip[c(5,6),1]),
+right = mean(dx.flip[c(2,3),1]),
+bottom = mean(dx.flip[c(7,8),1]))
 
-  box.range <- (box.mean[1,])
 
-  ROI <-cbind(cup.range,box.range) ## I have no idea what I am doing, really I didn't even make a funcation yet.
+  ROI <-cbind(cup.range,box.range) #
   full <- cbind(df,ROI) %>%   select(-Other, -ROI_coordinates)
 
   full %>%
@@ -53,6 +51,6 @@ get_coords <- function(df, ROIX = 200, ROIY = 100){
 
   full %>% select(Frame,X,Y,plotX,plotY) -> full
 
-  return(list('cup' = cup.range, 'box' = box.range, 'xy' = full))
+  return(list('cup_roi' = cup.range, 'box' = box.range, 'xy' = full))
 
 }

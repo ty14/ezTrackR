@@ -1,9 +1,10 @@
 #' thigmotaxis - center area vs non-center area. (use raw data)
 #' use raw data in dist.5 for thigmotaxis has distance in it already
+#' @export
 
 thigmotaxis <- function(df, left=100, right= -100, top =100, bottom=-100, FPS=30) {
 
-  c <- dist.5 %>%
+  c <- df %>%
     mutate(max_x= max(X)) %>%
     mutate(min_x = min(X)) %>%
     mutate(max_y = max(Y)) %>%
@@ -15,7 +16,6 @@ thigmotaxis <- function(df, left=100, right= -100, top =100, bottom=-100, FPS=30
     filter(X> t_left, X<t_right) %>%
     filter(Y<t_bottom, Y> t_top) %>%
     mutate(c_dist= sum(distance)) %>%
-    mutate(c_time = sum(time_sec)) %>%
     mutate(t_dist = total_distance - c_dist)
 
 
