@@ -1,0 +1,22 @@
+#' Example Habituation Dataset
+#'
+#' Some longer explanatory text goes here
+#'
+#' @format A data frame with 8938 rows and 14 variables:
+#' \describe{
+#'   \item{X1}{xxxx}
+#'   \item{File}{Season of match - refers to starting year}
+#'   \item{FPS}{Home team}
+#'   \item{Location_Thresh}{Visiting team}
+#'   \item{Use_Window}{Full-time result}
+#'   \item{Window_Weight}{Goals scored by home team}
+#'   \item{Window_Size}{Goals scored by visiting team}
+#'   \item{Start_Frame}{Division: 1}
+#'   \item{Frame}{Tier of football pyramid: 1}
+#'   \item{X}{Tier of football pyramid: 1}
+#'   \item{Y}{Total goals in game}
+#'   \item{Distance}{Goal difference in game home goals - visitor goals}
+#'   \item{ROI}{xxxx}
+#'   \item{ROI_coordinates}{xxxx}
+#' }
+"habit"
