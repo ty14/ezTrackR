@@ -15,7 +15,9 @@ thigmotaxis <- function(df, left=100, right= -100, top =100, bottom=-100, FPS=30
     filter(X> t_left, X<t_right) %>%
     filter(Y<t_bottom, Y> t_top) %>%
     mutate(c_dist= sum(distance)) %>%
+    mutate(c_time = sum(time_sec)) %>%
     mutate(t_dist = total_distance - c_dist)
+
 
   return(c %>% select(Frame,X,Y,c_dist,t_dist))
 
