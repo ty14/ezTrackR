@@ -1,5 +1,5 @@
-#thigmotaxis - center area vs non-center area. (use raw data)
-#use raw data in dist.5 for thigmotaxis has distance in it already
+#' thigmotaxis - center area vs non-center area. (use raw data)
+#' use raw data in dist.5 for thigmotaxis has distance in it already
 
 thigmotaxis <- function(df, left=100, right= -100, top =100, bottom=-100, FPS=30) {
 
