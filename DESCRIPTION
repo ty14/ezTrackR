@@ -4,6 +4,8 @@ Title: Analyzing ezTrack Data
 Version: 0.1.0
 Author: c(person("Tyler M.","Milewski", role =c("aut","cre"),
     email="milewski@utexas.edu")
+        c(person("James P.", "Curley", role =c("aut","cre"),
+    email="curley@utexas.edu")
 Maintainer: Tyler M. Milewski <milewski@utexas.edu>
 Description: Organizing and Analyzing Output from Behavior Tracking with ezTrack 
 Depends: 

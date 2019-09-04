@@ -6,9 +6,22 @@
 \usage{
 immobility(df, fr = 30, N = 2, X = 2)
 }
+\arguments{
+\item{df}{output of get_coords_habit or get_coords}
+
+\item{fr}{Frame Rate}
+
+\item{N}{seconds that animal has not moved to count as immobile}
+
+\item{X}{distance animal cannot have travelled for}
+}
+\value{
+a list including i) total immobile time, ii) periods of immobility
+}
 \description{
-df output of get_coords_habit or get_coords
-N seconds that animal has not moved to count as immobile
-X distance animal cannot have travelled for
-fr Frame Rate 30
+Calculate immobility
+}
+\examples{
+immobility(distcalc(get_coords_habit(habit)), X=1, N=3)
+immobility(distcalc(get_coords_habit(habit)), X=2, N=1.5)
 }
