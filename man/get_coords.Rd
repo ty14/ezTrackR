@@ -2,15 +2,31 @@
 % Please edit documentation in R/get_coords.R
 \name{get_coords}
 \alias{get_coords}
-\title{df  raw dataset
-ROIX = distance in X of ROI
-ROIY = distance in Y of ROI}
+\title{Gets rescaled coordinates of Box and Cup ROI}
 \usage{
 get_coords(df, secs = 300, fr = 30, burnin = 0, ROIX = 200,
   ROIY = 100)
 }
+\arguments{
+\item{df}{raw dataframe from python output}
+
+\item{secs}{number of seconds to get data for from beginning}
+
+\item{fr}{frame rate of camera}
+
+\item{burnin}{= number of frames to ignore}
+
+\item{ROIX}{= distance in X of ROI}
+
+\item{ROIY}{= distance in Y of ROI}
+}
+\value{
+a list i) cup ROI coordinates ii) box coordinates iii) data frame including Frame,X and Y coordinates,plotX and plotY for graphing
+}
 \description{
-df  raw dataset
-ROIX = distance in X of ROI
-ROIY = distance in Y of ROI
+Gets rescaled coordinates of Box and Cup ROI
+}
+\examples{
+get_coords_habit(df, secs=300, fr=30, burnin = 0)
+get_coords_habit(data, secs=600, fr=60, burnin = 3)
 }

@@ -1,8 +1,13 @@
-#' Get raw, plot and rescale coordinates and XY data for habituation
-#' df  raw dataset
-#' secs - number of seconds to keep
-#' fr frame rate
-#' burnin burnin period
+#' Gets rescaled coordinates for box
+
+#' @param df raw dataframe from python output during habituation
+#' @param secs number of seconds to get data for from beginning
+#' @param fr  frame rate of camera
+#' @param burnin - number of frames to ignore
+#' @return a list i) box coordinates ii) data frame including Frame,X and Y coordinates,plotX and plotY for graphing
+#' @examples
+#' get_coords_habit(df, secs=300, fr=30, burnin = 0)
+#' get_coords_habit(data, secs=600, fr=60, burnin = 3)
 #' @export
 
 get_coords_habit <- function(df, secs=300, fr=30, burnin = 0){

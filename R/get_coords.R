@@ -1,6 +1,16 @@
-#' df  raw dataset
-#' ROIX = distance in X of ROI
-#' ROIY = distance in Y of ROI
+#'Gets rescaled coordinates of Box and Cup ROI
+
+
+#' @param df raw dataframe from python output
+#' @param secs number of seconds to get data for from beginning
+#' @param fr  frame rate of camera
+#' @param burnin = number of frames to ignore
+#' @param ROIX = distance in X of ROI
+#' @param ROIY = distance in Y of ROI
+#' @return a list i) cup ROI coordinates ii) box coordinates iii) data frame including Frame,X and Y coordinates,plotX and plotY for graphing
+#' @examples
+#' get_coords_habit(df, secs=300, fr=30, burnin = 0)
+#' get_coords_habit(data, secs=600, fr=60, burnin = 3)
 #' @export
 
 get_coords <- function(df, secs=300, fr= 30, burnin = 0, ROIX = 200, ROIY = 100){

@@ -2,18 +2,26 @@
 % Please edit documentation in R/get_coords_habit.R
 \name{get_coords_habit}
 \alias{get_coords_habit}
-\title{Get raw, plot and rescale coordinates and XY data for habituation
-df  raw dataset
-secs - number of seconds to keep
-fr frame rate
-burnin burnin period}
+\title{Gets rescaled coordinates for box}
 \usage{
 get_coords_habit(df, secs = 300, fr = 30, burnin = 0)
 }
+\arguments{
+\item{df}{raw dataframe from python output during habituation}
+
+\item{secs}{number of seconds to get data for from beginning}
+
+\item{fr}{frame rate of camera}
+
+\item{burnin}{- number of frames to ignore}
+}
+\value{
+a list i) box coordinates ii) data frame including Frame,X and Y coordinates,plotX and plotY for graphing
+}
 \description{
-Get raw, plot and rescale coordinates and XY data for habituation
-df  raw dataset
-secs - number of seconds to keep
-fr frame rate
-burnin burnin period
+Gets rescaled coordinates for box
+}
+\examples{
+get_coords_habit(df, secs=300, fr=30, burnin = 0)
+get_coords_habit(data, secs=600, fr=60, burnin = 3)
 }
