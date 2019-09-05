@@ -2,23 +2,34 @@
 #' use raw data in dist.5 for thigmotaxis has distance in it already
 #' @export
 
-thigmotaxis <- function(df, left=100, right= -100, top =100, bottom=-100, FPS=30) {
+thigmotaxis <- function(df, df1, xleft=100, xright= -100, ytop =100, ybottom=-100, FPS=30) {
 
-  c <- df %>%
-    mutate(max_x= max(X)) %>%
-    mutate(min_x = min(X)) %>%
-    mutate(max_y = max(Y)) %>%
-    mutate(min_y = min(Y)) %>%
-    mutate(t_left = min_x + left) %>%
-    mutate(t_right = max_x +right) %>%
-    mutate(t_bottom = max_y + bottom) %>%
-    mutate(t_top = min_y + top) %>%
+  box <- df1[[1]]
+#getting distance
+  ct<- data.frame(df,box) %>%
+    mutate(t_left = box$left + xleft) %>%
+    mutate(t_right = box$right +xright) %>%
+    mutate(t_bottom = box$bottom + ybottom) %>%
+    mutate(t_top = box$top + ytop) %>%
     filter(X> t_left, X<t_right) %>%
     filter(Y<t_bottom, Y> t_top) %>%
     mutate(c_dist= sum(distance)) %>%
     mutate(t_dist = total_distance - c_dist)
+#getting time
+  total_row<-nrow(df)
+  center_row<-nrow(ct)
+
+  time <- ct %>%
+    mutate(c_time = center_row/FPS) %>%
+    mutate(t_time = (total_row/FPS)-c_time)
+
+#combine data
+  all<- ct %>%
+    full_join(time)
 
 
-  return(c %>% select(Frame,X,Y,c_dist,t_dist))
+  return(all %>% select(Frame,X,Y,c_dist,t_dist, c_time, t_time))
 
 }
+
+yay<-thigmotaxis(df,df1)

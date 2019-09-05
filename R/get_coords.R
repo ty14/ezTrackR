@@ -51,6 +51,18 @@ bottom = mean(dx.flip[c(7,8),1]))
 
   full %>% select(Frame,X,Y,plotX,plotY) -> full
 
+
+  #rescale
+  full$rescaleX <- ((full$plotX - box.range$left) / (box.range$right - box.range$left))*1000
+  full$rescaleY <- ((full$plotY - box.range$top) / (box.range$bottom - box.range$top))*1000
+
+  # keep data based on time, frame-rate and burn-in
+  full <- full %>% filter (Frame <= nframes)
+  full <- full[(1+burnin):(nrow(full)+burnin),]
+
+
   return(list('cup_roi' = cup.range, 'box' = box.range, 'xy' = full))
 
 }
+
+

@@ -52,3 +52,5 @@ get_coords_habit <- function(df, secs=300, fr=30, burnin = 0){
   return(list('box' = box.range, 'xy' = full))
 
 }
+
+
