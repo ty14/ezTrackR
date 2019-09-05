@@ -5,8 +5,8 @@
 \title{thigmotaxis - center area vs non-center area. (use raw data)
 use raw data in dist.5 for thigmotaxis has distance in it already}
 \usage{
-thigmotaxis(df, left = 100, right = -100, top = 100, bottom = -100,
-  FPS = 30)
+thigmotaxis(df, df1, xleft = 100, xright = -100, ytop = 100,
+  ybottom = -100, fr = 30)
 }
 \description{
 thigmotaxis - center area vs non-center area. (use raw data)

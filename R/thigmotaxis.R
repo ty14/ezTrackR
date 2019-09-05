@@ -2,7 +2,7 @@
 #' use raw data in dist.5 for thigmotaxis has distance in it already
 #' @export
 
-thigmotaxis <- function(df, df1, xleft=100, xright= -100, ytop =100, ybottom=-100, FPS=30) {
+thigmotaxis <- function(df, df1, xleft=100, xright= -100, ytop =100, ybottom=-100, fr=30) {
 
   box <- df1[[1]]
 #getting distance
@@ -20,8 +20,8 @@ thigmotaxis <- function(df, df1, xleft=100, xright= -100, ytop =100, ybottom=-10
   center_row<-nrow(ct)
 
   time <- ct %>%
-    mutate(c_time = center_row/FPS) %>%
-    mutate(t_time = (total_row/FPS)-c_time)
+    mutate(c_time = center_row/fr) %>%
+    mutate(t_time = (total_row/fr)-c_time)
 
 #combine data
   all<- ct %>%
@@ -32,4 +32,4 @@ thigmotaxis <- function(df, df1, xleft=100, xright= -100, ytop =100, ybottom=-10
 
 }
 
-yay<-thigmotaxis(df,df1)
+

@@ -51,21 +51,24 @@ immobility(distdf)
 
 
 ##############
+#get center and thigmotaxis distance/time use habit data and get_coord_habit
+df <- get_data(habit)
+df1 <- get_coords_habit(habit)
 
 
-eg <- get_coords(cup)
-
-df1 <- eg$xy
-
-head(df1)
+#Actually function
+thigmotaxis(df,df1)
 
 
-df1$newX <- ((df1$plotX - eg$box$left) / (eg$box$right - eg$box$left))*1000
-df1$newY <- ((df1$plotY - eg$box$top) / (eg$box$bottom - eg$box$top))*1000
+#############
+# getting cup_exploration
+df <- cup
+df1 <- get_coords(cup)
 
-head(df1)
+cup_exploration(df,df1)
 
-ggplot(df1, aes(x=newX,y=newY)) + geom_point(alpha=.3)
 
-thigmotaxis(df)
+
+
+
 

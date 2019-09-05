@@ -3,7 +3,7 @@
 #' ROIY = distance in Y of ROI
 #' @export
 
-get_coords <- function(df, ROIX = 200, ROIY = 100){
+get_coords <- function(df, secs=300, fr= 30, burnin = 0, ROIX = 200, ROIY = 100){
 
   library(tidyverse)
   library(stringi)
@@ -57,8 +57,12 @@ bottom = mean(dx.flip[c(7,8),1]))
   full$rescaleY <- ((full$plotY - box.range$top) / (box.range$bottom - box.range$top))*1000
 
   # keep data based on time, frame-rate and burn-in
+  nframes <- (secs * fr) + burnin
+
+  # keep data based on time, frame-rate and burn-in
   full <- full %>% filter (Frame <= nframes)
   full <- full[(1+burnin):(nrow(full)+burnin),]
+
 
 
   return(list('cup_roi' = cup.range, 'box' = box.range, 'xy' = full))
