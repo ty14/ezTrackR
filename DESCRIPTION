@@ -9,7 +9,7 @@ Author: c(person("Tyler M.","Milewski", role =c("aut","cre"),
 Maintainer: Tyler M. Milewski <milewski@utexas.edu>
 Description: Organizing and Analyzing Output from Behavior Tracking with ezTrack 
 Depends:
-    R (>= 3.5.2)
+    R (>= 3.5.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
