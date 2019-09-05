@@ -6,6 +6,21 @@
 \usage{
 cup_exploration(df, df1, fr = 30)
 }
+\arguments{
+\item{df}{raw dataframe from python output during social approach}
+
+\item{df1}{output of get_coords_habit or get_coords}
+
+\item{fr}{frame rate of camera}
+}
+\value{
+a data frame including Frame number, X and Y coordinates, distance per frame in the cup ROI,
+        total distance in cup ROI,time spent in cup ROI
+}
 \description{
 this is cup_exploration
+}
+\examples{
+cup_exploration(df,df1)
+cup_exploration(df,df_coords, fr=60)
 }

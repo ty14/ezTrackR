@@ -6,7 +6,12 @@
 \usage{
 distcalc(df)
 }
-\description{
+\arguments{
+\item{df}{dataframe from get_coords_habit or get_coords}
+}
+\value{
 Calculates distance from rescaleX and rescaleY values
-df dataframe from get_coords_habit or get_coords
+}
+\description{
+Calculate Distance Traveled
 }

@@ -1,7 +1,9 @@
 #' Calculate Distance Traveled
 #'
-#' Calculates distance from rescaleX and rescaleY values
-#' df dataframe from get_coords_habit or get_coords
+#' @param df dataframe from get_coords_habit or get_coords
+#' @return Calculates distance from rescaleX and rescaleY values
+#' @example
+#' distcalc(df)
 #' @export
 
 distcalc <- function(df){

@@ -1,10 +1,15 @@
 #' Function to Get Data for X seconds from raw file.
 
-#' df   raw dataframe from python output
-#' secs number of seconds to get data for from beginning
-#' fr  frame rate of camera
-#' burnin - number of frames to ignore
+#' @param df raw dataframe from python output
+#' @param secs number of seconds to get data for from beginning
+#' @param fr  frame rate of camera
+#' @param burnin - number of frames to ignore
+#' @return a data frame including Frame number, X and Y coordinates, distance traveled per frame, and total distance
+#' @examples
+#' get_data(df, secs=300, fr=30, burnin=0)
+#' get_data(data, secs=600, fr=60, burnin=5)
 #' @export
+
 
 get_data <- function(df, secs=300, fr=30, burnin = 0){
 

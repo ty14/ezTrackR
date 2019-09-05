@@ -1,5 +1,14 @@
 #'  this is cup_exploration
 #'
+#' @param df raw dataframe from python output during social approach
+#' @param df1 output of get_coords_habit or get_coords
+#' @param fr  frame rate of camera
+#' @return a data frame including Frame number, X and Y coordinates, distance per frame in the cup ROI,
+#'         total distance in cup ROI,time spent in cup ROI
+#' @examples
+#' cup_exploration(df,df1)
+#' cup_exploration(df,df_coords, fr=60)
+#'@export
 
 
 cup_exploration <- function(df, df1, fr=30) {

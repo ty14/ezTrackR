@@ -2,18 +2,26 @@
 % Please edit documentation in R/get_data.R
 \name{get_data}
 \alias{get_data}
-\title{Function to Get Data for X seconds from raw file.
-df   raw dataframe from python output
-secs number of seconds to get data for from beginning
-fr  frame rate of camera
-burnin - number of frames to ignore}
+\title{Function to Get Data for X seconds from raw file.}
 \usage{
 get_data(df, secs = 300, fr = 30, burnin = 0)
 }
+\arguments{
+\item{df}{raw dataframe from python output}
+
+\item{secs}{number of seconds to get data for from beginning}
+
+\item{fr}{frame rate of camera}
+
+\item{burnin}{- number of frames to ignore}
+}
+\value{
+a data frame including Frame number, X and Y coordinates, distance traveled per frame, and total distance
+}
 \description{
 Function to Get Data for X seconds from raw file.
-df   raw dataframe from python output
-secs number of seconds to get data for from beginning
-fr  frame rate of camera
-burnin - number of frames to ignore
+}
+\examples{
+get_data(df, secs=300, fr=30, burnin=0)
+get_data(data, secs=600, fr=60, burnin=5)
 }
