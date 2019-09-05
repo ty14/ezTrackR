@@ -8,7 +8,7 @@ Author: c(person("Tyler M.","Milewski", role =c("aut","cre"),
     email="curley@utexas.edu")
 Maintainer: Tyler M. Milewski <milewski@utexas.edu>
 Description: Organizing and Analyzing Output from Behavior Tracking with ezTrack 
-Depends: 
+Depends:
     R (>= 3.5.2)
 License: GPL-3
 Encoding: UTF-8
@@ -17,6 +17,9 @@ Imports:
     jsonlite,
     stringi,
     tidyverse
-URL:
-BugReports:
+URL: 
+BugReports: 
 RoxygenNote: 6.1.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr

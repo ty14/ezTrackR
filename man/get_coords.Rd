@@ -6,7 +6,8 @@
 ROIX = distance in X of ROI
 ROIY = distance in Y of ROI}
 \usage{
-get_coords(df, ROIX = 200, ROIY = 100)
+get_coords(df, secs = 300, fr = 30, burnin = 0, ROIX = 200,
+  ROIY = 100)
 }
 \description{
 df  raw dataset
