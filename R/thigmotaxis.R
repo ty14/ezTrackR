@@ -1,5 +1,15 @@
-#' thigmotaxis - center area vs non-center area. (use raw data)
-#' use raw data in dist.5 for thigmotaxis has distance in it already
+#' thigmotaxis
+#'
+#' @param  df raw dataframe from python output during habituation
+#' @param df1 output of get_coords_habit or get_coords
+#' @param xleft adding x units from the left to calculate thigmotaxis
+#' @param xright subtracting x units from the right to calculate thigmotaxis
+#' @param ytop adding y units from the top to calculate thigmotaxis
+#' @param xleft subtracting y units from the bottom to calculate thigmotaxis
+#' @return a data frame including Frame, X and Y coordinates, c_dist (center distance), t_dist (thigmotaxis distance),  c_time, t_time
+#' @examples
+#' thigmotaxis(df,df1,xleft=100, xright= -100, ytop =100, ybottom=-100, fr=30)
+#' thigmotaxis(df,get_coords_habit(df),xleft=50, xright= -50, ytop =50, ybottom=-50, fr=60)
 #' @export
 
 thigmotaxis <- function(df, df1, xleft=100, xright= -100, ytop =100, ybottom=-100, fr=30) {
