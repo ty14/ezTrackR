@@ -2,7 +2,7 @@
 % Please edit documentation in R/densityplot.R
 \name{densityplot}
 \alias{densityplot}
-\title{Getting a density plot during}
+\title{Getting a density plot during habituation and social approach}
 \usage{
 densityplot(df)
 }
@@ -13,5 +13,5 @@ densityplot(df)
 a plot split into a 1000 by 1000 grid of squares and then color the points by the estimated density in each square.
 }
 \description{
-Getting a density plot during
+Getting a density plot during habituation and social approach
 }

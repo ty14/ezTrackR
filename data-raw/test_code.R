@@ -72,6 +72,6 @@ cup_exploration(df,df1)
 #getting density and density plot is two diffent funcations but I think you can just run the line hopefully.
 
 densityplot(df1)
-
+densityplot5(df1)
 
 

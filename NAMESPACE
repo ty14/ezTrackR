@@ -2,6 +2,7 @@
 
 export(cup_exploration)
 export(densityplot)
+export(densityplot5)
 export(distcalc)
 export(distplot)
 export(get_coords)
