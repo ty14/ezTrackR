@@ -15,3 +15,6 @@ Calculates distance from rescaleX and rescaleY values
 \description{
 Calculate Distance Traveled
 }
+\examples{
+distcalc(df)
+}

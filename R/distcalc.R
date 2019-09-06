@@ -2,7 +2,7 @@
 #'
 #' @param df dataframe from get_coords_habit or get_coords
 #' @return Calculates distance from rescaleX and rescaleY values
-#' @example
+#' @examples
 #' distcalc(df)
 #' @export
 
