@@ -1,7 +1,7 @@
 #' thigmotaxis
 #'
 #' @param  df  dataframe from get_data function
-#' @param df1 output of get_coords_habit or get_coords
+#' @param df1 output of get_coords
 #' @param xleft adding x units from the left to calculate thigmotaxis
 #' @param xright subtracting x units from the right to calculate thigmotaxis
 #' @param ytop adding y units from the top to calculate thigmotaxis

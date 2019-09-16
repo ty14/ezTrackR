@@ -10,7 +10,7 @@ thigmotaxis(df, df1, xleft = 100, xright = -100, ytop = 100,
 \arguments{
 \item{df}{dataframe from get_data function}
 
-\item{df1}{output of get_coords_habit or get_coords}
+\item{df1}{output of get_coords}
 
 \item{xleft}{adding x units from the left to calculate thigmotaxis}
 
