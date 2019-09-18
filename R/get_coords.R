@@ -5,15 +5,13 @@
 #' @param secs number of seconds to get data for from beginning
 #' @param fr  frame rate of camera
 #' @param burnin = number of frames to ignore
-#' @param ROIX = distance in X of ROI
-#' @param ROIY = distance in Y of ROI
 #' @return a list i) cup ROI coordinates ii) box coordinates iii) data frame including Frame,X and Y coordinates,plotX and plotY for graphing
 #' @examples
 #' get_coords_habit(df, secs=300, fr=30, burnin = 0)
 #' get_coords_habit(data, secs=600, fr=60, burnin = 3)
 #' @export
 
-get_coords <- function(df, secs=300, fr= 30, burnin = 0, ROIX = 200, ROIY = 100){
+get_coords <- function(df, secs=300, fr= 30, burnin = 0){
 
   library(tidyverse)
   library(stringi)
@@ -36,12 +34,7 @@ get_coords <- function(df, secs=300, fr= 30, burnin = 0, ROIX = 200, ROIY = 100)
   cup.mean.x <- mean(dx.flip[c(1:4),2])
   cup.mean.y <- mean(dx.flip [c(5:8),2])
 
-  cup.range <- data.frame(
-    x_max = cup.mean.x + ROIX,
-    x_min = cup.mean.x - ROIX,
-    y_max = cup.mean.y + ROIY,
-    y_min = cup.mean.y - ROIY
-  )
+  cup.range <- data.frame(cup.mean.x, cup.mean.y)
 
 
   # pulls out x/y min and max for box range
@@ -65,6 +58,12 @@ bottom = mean(dx.flip[c(7,8),1]))
   #rescale
   full$rescaleX <- ((full$plotX - box.range$left) / (box.range$right - box.range$left))*1000
   full$rescaleY <- ((full$plotY - box.range$top) / (box.range$bottom - box.range$top))*1000
+
+  #rescale the cup means to the box range
+  full$rescalecup.meanx<- ((cup.range$cup.mean.x - box.range$left) / (box.range$right - box.range$left))*1000
+  full$rescalecup.meany <- ((cup.range$cup.mean.y - box.range$top) / (box.range$bottom - box.range$top))*1000
+
+
 
   # keep data based on time, frame-rate and burn-in
   nframes <- (secs * fr) + burnin

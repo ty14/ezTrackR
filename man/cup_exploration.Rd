@@ -4,14 +4,16 @@
 \alias{cup_exploration}
 \title{this is cup_exploration}
 \usage{
-cup_exploration(df, df1, fr = 30)
+cup_exploration(df, fr = 30, ROIX = 200, ROIY = 100)
 }
 \arguments{
-\item{df}{raw dataframe from python output during social approach}
-
-\item{df1}{output of get_coords_habit or get_coords}
+\item{df}{output of get_coords_habit or get_coords}
 
 \item{fr}{frame rate of camera}
+
+\item{ROIX}{= distance in X for cup ROI}
+
+\item{ROIY}{= distance in Y for cup ROI}
 }
 \value{
 a data frame including Frame number, X and Y coordinates, distance per frame in the cup ROI,

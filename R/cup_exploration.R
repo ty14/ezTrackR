@@ -1,8 +1,9 @@
 #'  this is cup_exploration
 #'
-#' @param df raw dataframe from python output during social approach
-#' @param df1 output of get_coords_habit or get_coords
+#' @param df output of get_coords_habit or get_coords
 #' @param fr  frame rate of camera
+#' @param ROIX = distance in X for cup ROI
+#' @param ROIY = distance in Y for cup ROI
 #' @return a data frame including Frame number, X and Y coordinates, distance per frame in the cup ROI,
 #'         total distance in cup ROI,time spent in cup ROI
 #' @examples
@@ -11,11 +12,15 @@
 #'@export
 
 
-cup_exploration <- function(df, df1, fr=30) {
+cup_exploration <- function(df, fr=30, ROIX= 200, ROIY= 100) {
 
-  cup_roi <- df1[[1]]
+  df1 <- df$xy
 #distance in cup ROI
-  c <- data.frame(df,cup_roi) %>%
+  c <- df1 %>%
+    mutate(x_min = rescalecup.meanx - ROIX) %>%
+    mutate(x_max = rescalecup.meanx + ROIX) %>%
+    mutate(y_min = rescalecup.meany - ROIY) %>%
+    mutate(y_max = rescalecup.meany + ROIY) %>%
     filter(X>x_min, X<x_max) %>%
     filter(Y>y_min, Y<y_max) %>%
     mutate( X_prev = lag( X ), Y_prev = lag( Y )) %>% #get the previous x and y value

@@ -4,8 +4,7 @@
 \alias{get_coords}
 \title{Gets rescaled coordinates of Box and Cup ROI}
 \usage{
-get_coords(df, secs = 300, fr = 30, burnin = 0, ROIX = 200,
-  ROIY = 100)
+get_coords(df, secs = 300, fr = 30, burnin = 0)
 }
 \arguments{
 \item{df}{raw dataframe from python output}
@@ -15,10 +14,6 @@ get_coords(df, secs = 300, fr = 30, burnin = 0, ROIX = 200,
 \item{fr}{frame rate of camera}
 
 \item{burnin}{= number of frames to ignore}
-
-\item{ROIX}{= distance in X of ROI}
-
-\item{ROIY}{= distance in Y of ROI}
 }
 \value{
 a list i) cup ROI coordinates ii) box coordinates iii) data frame including Frame,X and Y coordinates,plotX and plotY for graphing

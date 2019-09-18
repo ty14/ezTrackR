@@ -4,13 +4,11 @@
 \alias{thigmotaxis}
 \title{thigmotaxis}
 \usage{
-thigmotaxis(df, df1, xleft = 100, xright = -100, ytop = 100,
+thigmotaxis(df, xleft = 100, xright = -100, ytop = 100,
   ybottom = -100, fr = 30)
 }
 \arguments{
-\item{df}{dataframe from get_data function}
-
-\item{df1}{output of get_coords}
+\item{df}{dataframe from get_coords or get_coords habit}
 
 \item{xleft}{adding x units from the left to calculate thigmotaxis}
 
@@ -27,6 +25,6 @@ a data frame including Frame, X and Y coordinates, c_dist (center distance), t_d
 thigmotaxis
 }
 \examples{
-thigmotaxis(df,df1,xleft=100, xright= -100, ytop =100, ybottom=-100, fr=30)
-thigmotaxis(df,get_coords_habit(df),xleft=50, xright= -50, ytop =50, ybottom=-50, fr=60)
+thigmotaxis(df,xleft=100, xright= -100, ytop =100, ybottom=-100, fr=30)
+thigmotaxis(get_coords_habit(df),xleft=50, xright= -50, ytop =50, ybottom=-50, fr=60)
 }
